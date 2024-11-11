@@ -22,9 +22,11 @@ def main():
         if x.a == 'FIN':
             a.append(x)
 
+    b = sorted(a, key=lambda x: x.bc, reverse=True)
+
     print('players from finland\n')
 
-    for player in a:
+    for player in b:
         print(player)
 
 if __name__ == "__main__":
