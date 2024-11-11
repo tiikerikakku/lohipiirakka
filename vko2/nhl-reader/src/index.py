@@ -22,6 +22,8 @@ def main():
         if x.a == 'FIN':
             a.append(x)
 
+    print('players from finland\n')
+
     for player in a:
         print(player)
 
