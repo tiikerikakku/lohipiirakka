@@ -5,7 +5,7 @@ from summa import summa
 from erotus import erotus
 from tulo import tulo
 
-logger('aloitetaan')
+logger('aloitetaanpas')
 
 x = int(input('luku 1: '))
 y = int(input('luku 2: '))
