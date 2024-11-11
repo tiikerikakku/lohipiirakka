@@ -13,3 +13,5 @@ print(summa(x, y))
 print(erotus(x, y))
 
 logger('lopetetaan')
+
+# tää loppuu nyt
