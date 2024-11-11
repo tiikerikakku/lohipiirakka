@@ -12,3 +12,10 @@ class PlayerReader:
         for x in self._r:
             xx = Player(x)
             self.players.append(xx)
+
+        # self._b = set()
+
+        # for x in self.players:
+        #     self._b.add(x.a)
+        
+        # print(sorted(list(self._b)))
