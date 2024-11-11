@@ -9,8 +9,8 @@ logger('aloitetaan roska')
 x = int(input('luku 1: '))
 y = int(input('luku 2: '))
 
-print(f'{x} + {y} = {summa(x, y)}')
-print(f'{x} - {y} = {erotus(x, y)}')
+print('summa on ' + summa(x, y))
+print('erotus on ' + erotus(x, y))
 
 logger('lopetetaan')
 
