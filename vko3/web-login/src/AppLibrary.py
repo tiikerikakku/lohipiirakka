@@ -16,3 +16,6 @@ class AppLibrary:
         }
 
         requests.post(f"{self._base_url}/register", data=data)
+
+    def logout(self):
+        requests.post(f'{self._base_url}/logout')

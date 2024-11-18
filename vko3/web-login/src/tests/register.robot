@@ -43,6 +43,28 @@ Register With Username That Is Already In Use
   submit credentials
   register should fail with message  User with username xyz already exists
 
+Login After Successful Registration
+  set username  viola
+  set password  kukkan3n
+  submit credentials
+  logout
+  go to login page
+  set username  viola
+  input password  password  kukkan3n
+  click button  Login
+  main page should be open
+
+Login After Failed Registration
+  set username  x
+  set password  x
+  submit credentials
+  logout
+  go to login page
+  set username  x
+  input password  password  x
+  click button  Login
+  login page should be open
+
 *** Keywords ***
 Reset Application Create User And Go To Register Page
   reset application
