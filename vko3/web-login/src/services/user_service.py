@@ -2,7 +2,7 @@ from entities.user import User
 from repositories.user_repository import (
     user_repository as default_user_repository
 )
-
+from re import fullmatch, search
 
 class UserInputError(Exception):
     pass
@@ -40,7 +40,17 @@ class UserService:
         if not username or not password:
             raise UserInputError("Username and password are required")
 
-        # toteuta loput tarkastukset tänne ja nosta virhe virhetilanteissa
+        if not fullmatch(r'^[a-z]{3,8}$', username):
+            raise UserInputError('Invalid username')
+        
+        if len(password) < 8:
+            raise UserInputError('Password too short')
+        
+        if not search(r'[^a-zA-Z\s]', password):
+            raise UserInputError('Password too simple')
+        
+        if password != password_confirmation:
+            raise UserInputError('Passwords do not match')
 
 
 user_service = UserService()
