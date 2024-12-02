@@ -31,7 +31,7 @@ class IntJoukko:
         return False
 
     def lisaa(self, lisattava):
-        if not self.kuuluu(lisattava): # n ei kuulu listaan
+        if not self.kuuluu(lisattava): # lisättävä ei kuulu listaan
             self.lukujono[self.alkioiden_lkm] = lisattava
             self.alkioiden_lkm += 1
 
