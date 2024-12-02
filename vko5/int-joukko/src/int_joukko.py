@@ -3,11 +3,11 @@ class IntJoukko:
     def _luo_lista(self, koko):
         return [0] * koko
     
-    def _kopioi_lista(self, a, b):
-        for i in range(0, len(a)):
-            if i >= len(b):
+    def _kopioi_lista(self, kopioitava, uusi):
+        for i in range(0, len(kopioitava)):
+            if i >= len(uusi):
                 break
-            b[i] = a[i]
+            uusi[i] = kopioitava[i]
     
     def __init__(self, kapasiteetti=5, kasvatuskoko=5):
         if not isinstance(kapasiteetti, int) or kapasiteetti < 0:
@@ -23,9 +23,9 @@ class IntJoukko:
         self.lukujono = self._luo_lista(self.kapasiteetti)
         self.alkioiden_lkm = 0
 
-    def kuuluu(self, n):
+    def kuuluu(self, alkio):
         for i in range(0, self.alkioiden_lkm):
-            if n == self.lukujono[i]:
+            if alkio == self.lukujono[i]:
                 return True
 
         return False
