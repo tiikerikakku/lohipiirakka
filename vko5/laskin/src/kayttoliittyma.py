@@ -14,6 +14,36 @@ class Kayttoliittyma:
         self._sovelluslogiikka = sovelluslogiikka
         self._root = root
 
+        self._cmd = {
+            Komento.SUMMA: self._summa,
+            Komento.EROTUS: self._erotus,
+            Komento.NOLLAUS: self._nollaa,
+            Komento.KUMOA: self._kumoa
+        }
+
+        self._before = 0
+
+    # this doesn't quite follow the given example
+    # but it works...
+    # and I've got rid of the "horrifying" if-statements
+
+    def _summa(self, arvo):
+        self._before = self._sovelluslogiikka.arvo()
+        self._sovelluslogiikka.plus(arvo)
+
+    def _erotus(self, arvo):
+        self._before = self._sovelluslogiikka.arvo()
+        self._sovelluslogiikka.miinus(arvo)
+
+    def _nollaa(self, arvo):
+        self._before = self._sovelluslogiikka.arvo()
+        self._sovelluslogiikka.nollaa()
+
+    def _kumoa(self, arvo):
+        c = self._sovelluslogiikka.arvo()
+        self._sovelluslogiikka.aseta_arvo(self._before)
+        self._before = c
+
     def kaynnista(self):
         self._arvo_var = StringVar()
         self._arvo_var.set(self._sovelluslogiikka.arvo())
@@ -62,14 +92,7 @@ class Kayttoliittyma:
         except Exception:
             pass
 
-        if komento == Komento.SUMMA:
-            self._sovelluslogiikka.plus(arvo)
-        elif komento == Komento.EROTUS:
-            self._sovelluslogiikka.miinus(arvo)
-        elif komento == Komento.NOLLAUS:
-            self._sovelluslogiikka.nollaa()
-        elif komento == Komento.KUMOA:
-            pass
+        self._cmd[komento](arvo)
 
         self._kumoa_painike["state"] = constants.NORMAL
 
