@@ -52,3 +52,15 @@ class HasFewerThan:
 
     def test(self, player):
         return not HasAtLeast(self._a, self._b).test(player)
+
+
+class Or:
+    def __init__(self, *a):
+        self._a = a
+
+    def test(self, player):
+        for x in self._a:
+            if x.test(player):
+                return True
+            
+        return False
